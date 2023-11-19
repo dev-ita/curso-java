@@ -17,6 +17,7 @@ public class Variaveis {
 		BigDecimal tipoBigDecimal = BigDecimal.ONE;
 		double tipoDouble = Double.MAX_VALUE;
 		long tipoLong = Long.MAX_VALUE;
+		char sexo = 'M';
 
 		System.out.println(tipoByte);
 		System.out.println(tipoShort);
@@ -26,7 +27,8 @@ public class Variaveis {
 		System.out.println(tipoDouble);
 		System.out.println(tipoBigDecimal);
 		System.out.println(tipoLong);
-		
+		System.out.println(sexo);		
+
 		metodo();
 	}
 	
