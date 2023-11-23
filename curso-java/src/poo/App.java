@@ -1,37 +1,45 @@
 package poo;
 
+import javax.swing.JOptionPane;
+
 import poo.classes.Aluno;
 
 public class App {
 	public static void main(String[] args) {
 		Aluno aluno1 = new Aluno();
 
-		aluno1.setNome("italo");
-		aluno1.setIdade(19);
-		aluno1.setDataMatricula("10/02/2020");
-		aluno1.setDataNascimento("21/02/2004");
-		aluno1.setNomeEscola("Maroja neto");
-		aluno1.setNomeMae("Cristiane");
-		aluno1.setNomePai("Rubens");
-		aluno1.setNumeroCpf("060.123.321-00");
-		aluno1.setSerieMatriculado("3º ano");
-		aluno1.setRegistroGeral("12932128");
-		aluno1.setNota1(50);
-		aluno1.setNota2(50);
-		aluno1.setNota3(50);
-		aluno1.setNota4(50);
+		String nome = JOptionPane.showInputDialog(null, "Qual o nome do aluno?");
+		int idade = Integer.parseInt(JOptionPane.showInputDialog(null, "Qual a idade do aluno?"));
+		String dataNascimento = JOptionPane.showInputDialog(null, "Qual a data de nascimento?");
+		String rg = JOptionPane.showInputDialog(null, "Qual o seu RG?");
+		String cpf = JOptionPane.showInputDialog(null, "Qual seu CPF?");
+		String nomeMae = JOptionPane.showInputDialog(null, "Qual o nome da mãe?");
+		String nomePai = JOptionPane.showInputDialog(null, "Qual o nome do pai?");
+		String dataMatricula = JOptionPane.showInputDialog(null, "Qual a data da martrícula?");
+		String serieMatriculado = JOptionPane.showInputDialog(null, "Qual a série matrículada?");
+		String nomeEscola = JOptionPane.showInputDialog(null, "Qual o nome da escola?");
+		double nota1 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota1"));
+		double nota2 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota2"));
+		double nota3 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota3"));
+		double nota4 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota4"));
+
+		aluno1.setNome(nome);
+		aluno1.setIdade(idade);
+		aluno1.setDataMatricula(dataMatricula);
+		aluno1.setDataNascimento(dataNascimento);
+		aluno1.setNomeEscola(nomeEscola);
+		aluno1.setNomeMae(nomeMae);
+		aluno1.setNomePai(nomePai);
+		aluno1.setNumeroCpf(cpf);
+		aluno1.setSerieMatriculado(serieMatriculado);
+		aluno1.setRegistroGeral(rg);
+		aluno1.setNota1(nota1);
+		aluno1.setNota2(nota2);
+		aluno1.setNota3(nota3);
+		aluno1.setNota4(nota4);
 		
-		System.out.println("Media: " + aluno1.getMedia());
-		System.out.println("Aprovado: " + (aluno1.verificarAprovacao() ? "Aprovado" : "Reprovado"));
-		System.out.println("Aprovado2: " + aluno1.verificarAprovacaoStr());
-		System.out.println(aluno1.getNome() + ", " + aluno1.getIdade());
-
-		Aluno aluno2 = new Aluno();
-		aluno2.setNome("isabele");
-		aluno2.setIdade(17);
-		aluno2.setDataMatricula("21/02/2022");
-		aluno2.setDataNascimento("24/12/2005");
-
-		System.out.println(aluno2.getNome() + ", " + aluno2.getIdade());
+		System.out.println(aluno1.toString());
+		System.out.println("Média = " + aluno1.getMedia());
+		System.out.println("Resultado = " + aluno1.verificarAprovacaoStr());
 	}
 }
