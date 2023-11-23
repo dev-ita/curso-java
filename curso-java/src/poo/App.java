@@ -46,7 +46,7 @@ public class App {
 
 		
 		/*Equals e HashCode (diferenciar e comparar objetos)*/
-		Aluno aluno1 = new Aluno();		
+		Aluno aluno1 = new Aluno();
 		aluno1.setNome("italo");
 		aluno1.setNumeroCpf("123");
 

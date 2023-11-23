@@ -188,5 +188,4 @@ public class Aluno {
 		Aluno other = (Aluno) obj;
 		return Objects.equals(nome, other.nome) && Objects.equals(numeroCpf, other.numeroCpf);
 	}
-
 }
