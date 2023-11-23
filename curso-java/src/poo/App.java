@@ -6,6 +6,7 @@ import poo.classes.Aluno;
 
 public class App {
 	public static void main(String[] args) {
+		/*
 		Aluno aluno1 = new Aluno();
 
 		String nome = JOptionPane.showInputDialog(null, "Qual o nome do aluno?");
@@ -41,5 +42,22 @@ public class App {
 		System.out.println(aluno1.toString());
 		System.out.println("Média = " + aluno1.getMedia());
 		System.out.println("Resultado = " + aluno1.verificarAprovacaoStr());
+		*/
+
+		
+		/*Equals e HashCode (diferenciar e comparar objetos)*/
+		Aluno aluno1 = new Aluno();		
+		aluno1.setNome("italo");
+		aluno1.setNumeroCpf("123");
+
+		Aluno aluno2 = new Aluno();
+		aluno2.setNome("italo");
+		aluno2.setNumeroCpf("123");
+		
+		if (aluno1.equals(aluno2)) {
+			System.out.println("Alunos iguais");
+		} else {
+			System.out.println("Alunos não iguais");
+		}
 	}
 }
