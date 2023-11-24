@@ -35,14 +35,7 @@ public class App {
 				if (aluno1.getDisciplinas().size() > 1) {
 					String nomeDisciplina = JOptionPane.showInputDialog(null,
 							"Qual o nome da disciplina a ser removida?");
-					for (Disciplina disciplina : aluno1.getDisciplinas()) {
-						if (disciplina.getDisciplina().equals(nomeDisciplina)) {
-							int index = aluno1.getDisciplinas().indexOf(disciplina);
-							aluno1.getDisciplinas().remove(index);
-							System.out.println("Disciplina = " + disciplina + ", removida com sucesso.");
-							break;
-						}
-					}
+					aluno1.removeDisciplina(nomeDisciplina);
 					continuarRemover = JOptionPane.showConfirmDialog(null, "Deseja continuar removendo disciplinas?");
 				} else {
 					JOptionPane.showMessageDialog(null, "Você deve ter pelo menos uma disciplina cadastrada");

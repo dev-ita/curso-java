@@ -18,11 +18,11 @@ public class Aluno {
 	private String serieMatriculado;
 
 	private List<Disciplina> disciplinas = new ArrayList<Disciplina>();
-	
+
 	public void setDisciplinas(List<Disciplina> disciplinas) {
 		this.disciplinas = disciplinas;
 	}
-	
+
 	public List<Disciplina> getDisciplinas() {
 		return disciplinas;
 	}
@@ -36,6 +36,19 @@ public class Aluno {
 	}
 
 	// métodos
+
+	public Disciplina removeDisciplina(String nome) {
+		Disciplina disciplinaRemovida = null;
+		for (Disciplina disciplina : this.disciplinas) {
+			if (disciplina.getDisciplina().equals(nome)) {
+				int index = this.disciplinas.indexOf(disciplina);
+				disciplinaRemovida = this.disciplinas.remove(index);
+				break;
+			}
+		}
+		return disciplinaRemovida;
+	}
+
 	public double getMedia() {
 		double somaNotas = 0.0;
 		for (Disciplina disciplina : disciplinas) {
