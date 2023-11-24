@@ -60,10 +60,16 @@ public class App {
 
 		System.out.println(alunos);
 
-		for (Aluno aluno : alunos) {
-			System.out.println(aluno.getNome() + " - Média = " + aluno.getMedia());
-			System.out.println(aluno.getNome() + " - Resultado = " + aluno.verificarAprovacaoStr());
+		Aluno buscarAluno = Aluno.searchAluno("italo", alunos);
+		if (buscarAluno != null) {
+			System.out.println(buscarAluno.getNome() + " - Média = " + buscarAluno.getMedia());
+			System.out.println(buscarAluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
 		}
+
+//		for (Aluno aluno : alunos) {
+//			System.out.println(aluno.getNome() + " - Média = " + aluno.getMedia());
+//			System.out.println(aluno.getNome() + " - Resultado = " + aluno.verificarAprovacaoStr());
+//		}
 
 //		System.out.println(aluno.toString());
 	}

@@ -61,6 +61,16 @@ public class Aluno {
 		}
 		return disciplinaRemovida;
 	}
+	
+	public static Aluno searchAluno(String nome, List<Aluno> alunos) {
+		Aluno aluno = null;
+		for (Aluno a : alunos) {
+			if(a.nome.equals(nome)) {
+				aluno = a;
+			}
+		}
+		return aluno;
+	}
 
 	public double getMedia() {
 		double somaNotas = 0.0;
