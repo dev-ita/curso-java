@@ -3,10 +3,10 @@ package poo;
 import javax.swing.JOptionPane;
 
 import poo.classes.Aluno;
+import poo.classes.Disciplina;
 
 public class App {
 	public static void main(String[] args) {
-		/*
 		Aluno aluno1 = new Aluno();
 
 		String nome = JOptionPane.showInputDialog(null, "Qual o nome do aluno?");
@@ -19,10 +19,6 @@ public class App {
 		String dataMatricula = JOptionPane.showInputDialog(null, "Qual a data da martrícula?");
 		String serieMatriculado = JOptionPane.showInputDialog(null, "Qual a série matrículada?");
 		String nomeEscola = JOptionPane.showInputDialog(null, "Qual o nome da escola?");
-		double nota1 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota1"));
-		double nota2 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota2"));
-		double nota3 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota3"));
-		double nota4 = Double.parseDouble(JOptionPane.showInputDialog(null, "Digite a nota4"));
 
 		aluno1.setNome(nome);
 		aluno1.setIdade(idade);
@@ -34,30 +30,30 @@ public class App {
 		aluno1.setNumeroCpf(cpf);
 		aluno1.setSerieMatriculado(serieMatriculado);
 		aluno1.setRegistroGeral(rg);
-		aluno1.setNota1(nota1);
-		aluno1.setNota2(nota2);
-		aluno1.setNota3(nota3);
-		aluno1.setNota4(nota4);
+
+		Disciplina disciplina1 = new Disciplina();
+		disciplina1.setDisciplina("Banco de dados");
+		disciplina1.setNota(90);
+
+		Disciplina disciplina2 = new Disciplina();
+		disciplina2.setDisciplina("Programação Java");
+		disciplina2.setNota(80);
+
+		Disciplina disciplina3 = new Disciplina();
+		disciplina3.setDisciplina("Compiladores");
+		disciplina3.setNota(100);
+
+		Disciplina disciplina4 = new Disciplina();
+		disciplina4.setDisciplina("Arquitetura de Software");
+		disciplina4.setNota(70);
+
+		aluno1.getDisciplinas().add(disciplina1);
+		aluno1.getDisciplinas().add(disciplina2);
+		aluno1.getDisciplinas().add(disciplina3);
+		aluno1.getDisciplinas().add(disciplina4);
 		
 		System.out.println(aluno1.toString());
 		System.out.println("Média = " + aluno1.getMedia());
 		System.out.println("Resultado = " + aluno1.verificarAprovacaoStr());
-		*/
-
-		
-		/*Equals e HashCode (diferenciar e comparar objetos)*/
-		Aluno aluno1 = new Aluno();
-		aluno1.setNome("italo");
-		aluno1.setNumeroCpf("123");
-
-		Aluno aluno2 = new Aluno();
-		aluno2.setNome("italo");
-		aluno2.setNumeroCpf("123");
-		
-		if (aluno1.equals(aluno2)) {
-			System.out.println("Alunos iguais");
-		} else {
-			System.out.println("Alunos não iguais");
-		}
 	}
 }
