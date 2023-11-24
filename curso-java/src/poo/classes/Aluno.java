@@ -57,6 +57,8 @@ public class Aluno {
 		double media = this.getMedia();
 		if (media >= 70) {
 			return "Aprovado";
+		} else if (media >= 50 && media < 70) {
+			return "Recuperação";
 		} else {
 			return "Reprovado";
 		}
