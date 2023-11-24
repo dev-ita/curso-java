@@ -7,7 +7,6 @@ import poo.classes.Disciplina;
 
 public class App {
 	public static void main(String[] args) {
-		Aluno aluno1 = new Aluno();
 
 		String nome = JOptionPane.showInputDialog(null, "Qual o nome do aluno?");
 		int idade = Integer.parseInt(JOptionPane.showInputDialog(null, "Qual a idade do aluno?"));
@@ -19,6 +18,30 @@ public class App {
 		String dataMatricula = JOptionPane.showInputDialog(null, "Qual a data da martrícula?");
 		String serieMatriculado = JOptionPane.showInputDialog(null, "Qual a série matrículada?");
 		String nomeEscola = JOptionPane.showInputDialog(null, "Qual o nome da escola?");
+		int numeroDisciplinas = Integer.parseInt(JOptionPane.showInputDialog(null, "Quantas disciplinas você tem?"));
+
+		Aluno aluno1 = new Aluno();
+
+		for (int i = 1; i <= numeroDisciplinas; i++) {
+			String nomeDisciplina = JOptionPane.showInputDialog(null, "Qual o nome da disciplina " + i);
+			double notaDisciplina = Double.parseDouble(JOptionPane.showInputDialog(null, "Qual a nota da disciplina" + i));
+			aluno1.getDisciplinas().add(new Disciplina(nomeDisciplina, notaDisciplina));
+		}
+		
+		int removerDisciplina = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");
+		
+		if (removerDisciplina == 0) {
+			String nomeDisciplina = JOptionPane.showInputDialog(null, "Qual o nome da disciplina a ser removida?");
+			
+			for (Disciplina disciplina : aluno1.getDisciplinas()) {
+				if (disciplina.getDisciplina().equals(nomeDisciplina)) {
+					int index = aluno1.getDisciplinas().indexOf(disciplina);
+					aluno1.getDisciplinas().remove(index);
+					System.out.println("Disciplina = " + disciplina + ", removida com sucesso.");
+					break;
+				}
+			}
+		}
 
 		aluno1.setNome(nome);
 		aluno1.setIdade(idade);
@@ -31,27 +54,6 @@ public class App {
 		aluno1.setSerieMatriculado(serieMatriculado);
 		aluno1.setRegistroGeral(rg);
 
-		Disciplina disciplina1 = new Disciplina();
-		disciplina1.setDisciplina("Banco de dados");
-		disciplina1.setNota(90);
-
-		Disciplina disciplina2 = new Disciplina();
-		disciplina2.setDisciplina("Programação Java");
-		disciplina2.setNota(80);
-
-		Disciplina disciplina3 = new Disciplina();
-		disciplina3.setDisciplina("Compiladores");
-		disciplina3.setNota(100);
-
-		Disciplina disciplina4 = new Disciplina();
-		disciplina4.setDisciplina("Arquitetura de Software");
-		disciplina4.setNota(70);
-
-		aluno1.getDisciplinas().add(disciplina1);
-		aluno1.getDisciplinas().add(disciplina2);
-		aluno1.getDisciplinas().add(disciplina3);
-		aluno1.getDisciplinas().add(disciplina4);
-		
 		System.out.println(aluno1.toString());
 		System.out.println("Média = " + aluno1.getMedia());
 		System.out.println("Resultado = " + aluno1.verificarAprovacaoStr());

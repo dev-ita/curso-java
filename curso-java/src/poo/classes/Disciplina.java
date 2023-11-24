@@ -11,7 +11,8 @@ public class Disciplina {
 	}
 
 	public Disciplina(String disciplina, double nota) {
-		
+		this.disciplina = disciplina;
+		this.nota = nota;
 	}
 
 	public double getNota() {
