@@ -64,6 +64,8 @@ public class App {
 		if (buscarAluno != null) {
 			System.out.println(buscarAluno.getNome() + " - Média = " + buscarAluno.getMedia());
 			System.out.println(buscarAluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
+		} else {
+			System.out.println("Aluno não encontrado!");
 		}
 
 //		for (Aluno aluno : alunos) {
