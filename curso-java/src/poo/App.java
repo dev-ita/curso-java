@@ -2,7 +2,6 @@ package poo;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.swing.JOptionPane;
 import poo.classes.Aluno;
 import poo.classes.Disciplina;
@@ -62,11 +61,24 @@ public class App {
 
 		Aluno buscarAluno = Aluno.searchAluno("italo", alunos);
 		if (buscarAluno != null) {
-			System.out.println(buscarAluno.getNome() + " - Média = " + buscarAluno.getMedia());
-			System.out.println(buscarAluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
+			alunos.remove(buscarAluno);
 		} else {
 			System.out.println("Aluno não encontrado!");
 		}
+
+		for (Aluno aluno : alunos) {
+			System.out.println(aluno.getNome() + " - Média = " + buscarAluno.getMedia());
+			System.out.println(aluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
+		}
+
+		System.out.println(alunos.size() + " " + alunos.get(0));
+
+//		if (buscarAluno != null) {
+//			System.out.println(buscarAluno.getNome() + " - Média = " + buscarAluno.getMedia());
+//			System.out.println(buscarAluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
+//		} else {
+//			System.out.println("Aluno não encontrado!");
+//		}
 
 //		for (Aluno aluno : alunos) {
 //			System.out.println(aluno.getNome() + " - Média = " + aluno.getMedia());
