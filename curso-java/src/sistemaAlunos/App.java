@@ -1,10 +1,11 @@
-package poo;
+package sistemaAlunos;
 
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-import poo.classes.Aluno;
-import poo.classes.Disciplina;
+
+import sistemaAlunos.classes.Aluno;
+import sistemaAlunos.classes.Disciplina;
 
 public class App {
 	public static void main(String[] args) {
@@ -57,45 +58,34 @@ public class App {
 			alunos.add(aluno);
 		}
 
-//		System.out.println(alunos);
+		int removerAluno = JOptionPane.showConfirmDialog(null, "deseja remover algum aluno?");
 
-		Aluno buscarAluno = Aluno.searchAluno("italo", alunos);
-		if (buscarAluno != null) {
-			alunos.remove(buscarAluno);
-		} else {
-			System.out.println("Aluno não encontrado!");
+		if (removerAluno == 0) {
+			String removeNomeAluno = JOptionPane.showInputDialog(null, "Qual o nome do aluno a ser removido?");
+
+			Aluno buscarAluno = Aluno.searchAluno(removeNomeAluno, alunos);
+			if (buscarAluno != null) {
+				alunos.remove(buscarAluno);
+			} else {
+				System.out.println("Aluno não encontrado!");
+			}
 		}
 
 		for (int i = 0; i < alunos.size(); i++) {
 			Aluno aluno = alunos.get(i);
+			
 			System.out.println("Aluno: " + aluno.getNome());
 			System.out.println("Média = " + aluno.getMedia());
 			System.out.println("Resultado = " + aluno.verificarAprovacaoStr());
+
 			System.out.println("==========================disciplinas===========================");
-			for (var disciplina : aluno.getDisciplinas()) {
+			for (int j = 0; j < aluno.getDisciplinas().size(); j++) {
+				Disciplina disciplina = aluno.getDisciplinas().get(j);
 				System.out.println("materia = " + disciplina.getDisciplina() + ", nota = " + disciplina.getNota());
 			}
+			System.out.println("================================================================");
 		}
 
-//		for (Aluno aluno : alunos) {
-//			System.out.println(aluno.getNome() + " - Média = " + buscarAluno.getMedia());
-//			System.out.println(aluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
-//		}
-
-		System.out.println(alunos.size() + " " + alunos.get(0));
-
-//		if (buscarAluno != null) {
-//			System.out.println(buscarAluno.getNome() + " - Média = " + buscarAluno.getMedia());
-//			System.out.println(buscarAluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
-//		} else {
-//			System.out.println("Aluno não encontrado!");
-//		}
-
-//		for (Aluno aluno : alunos) {
-//			System.out.println(aluno.getNome() + " - Média = " + aluno.getMedia());
-//			System.out.println(aluno.getNome() + " - Resultado = " + aluno.verificarAprovacaoStr());
-//		}
-
-//		System.out.println(aluno.toString());
+		System.out.println(alunos.size() + " " + alunos);
 	}
 }
