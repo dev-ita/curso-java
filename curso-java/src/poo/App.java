@@ -57,7 +57,7 @@ public class App {
 			alunos.add(aluno);
 		}
 
-		System.out.println(alunos);
+//		System.out.println(alunos);
 
 		Aluno buscarAluno = Aluno.searchAluno("italo", alunos);
 		if (buscarAluno != null) {
@@ -67,10 +67,14 @@ public class App {
 		}
 
 		for (int i = 0; i < alunos.size(); i++) {
-			System.out.println("Aluno: " + alunos.get(i).getNome());
-			System.out.println("Média = " + buscarAluno.getMedia());
-			System.out.println("Resultado = " + buscarAluno.verificarAprovacaoStr());
-			System.out.println("=====================================================");
+			Aluno aluno = alunos.get(i);
+			System.out.println("Aluno: " + aluno.getNome());
+			System.out.println("Média = " + aluno.getMedia());
+			System.out.println("Resultado = " + aluno.verificarAprovacaoStr());
+			System.out.println("==========================disciplinas===========================");
+			for (var disciplina : aluno.getDisciplinas()) {
+				System.out.println("materia = " + disciplina.getDisciplina() + ", nota = " + disciplina.getNota());
+			}
 		}
 
 //		for (Aluno aluno : alunos) {
