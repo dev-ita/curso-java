@@ -66,10 +66,17 @@ public class App {
 			System.out.println("Aluno não encontrado!");
 		}
 
-		for (Aluno aluno : alunos) {
-			System.out.println(aluno.getNome() + " - Média = " + buscarAluno.getMedia());
-			System.out.println(aluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
+		for (int i = 0; i < alunos.size(); i++) {
+			System.out.println("Aluno: " + alunos.get(i).getNome());
+			System.out.println("Média = " + buscarAluno.getMedia());
+			System.out.println("Resultado = " + buscarAluno.verificarAprovacaoStr());
+			System.out.println("=====================================================");
 		}
+
+//		for (Aluno aluno : alunos) {
+//			System.out.println(aluno.getNome() + " - Média = " + buscarAluno.getMedia());
+//			System.out.println(aluno.getNome() + " - Resultado = " + buscarAluno.verificarAprovacaoStr());
+//		}
 
 		System.out.println(alunos.size() + " " + alunos.get(0));
 
