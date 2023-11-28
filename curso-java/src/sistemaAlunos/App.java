@@ -3,7 +3,6 @@ package sistemaAlunos;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
-
 import sistemaAlunos.classes.Aluno;
 import sistemaAlunos.classes.Disciplina;
 
@@ -73,6 +72,20 @@ public class App {
 
 		for (int i = 0; i < alunos.size(); i++) {
 			Aluno aluno = alunos.get(i);
+
+			// substituindo um aluno
+			if (aluno.getNome().equalsIgnoreCase("italo")) {
+				Aluno trocar = new Aluno();
+				trocar.setNome("aluno trocado");
+
+				Disciplina disciplina1 = new Disciplina("java", 100);
+				Disciplina disciplina2 = new Disciplina("C++", 100);
+				trocar.getDisciplinas().add(disciplina1);
+				trocar.getDisciplinas().add(disciplina2);
+				
+				alunos.set(i, trocar);
+				aluno = alunos.get(i);
+			}
 			
 			System.out.println("Aluno: " + aluno.getNome());
 			System.out.println("Média = " + aluno.getMedia());
