@@ -3,6 +3,7 @@ package sistemaAlunos.classes;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import sistemaAlunos.constantes.StatusAluno;
 
 public class Aluno {
 	// atributos
@@ -93,11 +94,11 @@ public class Aluno {
 	public String verificarAprovacaoStr() {
 		double media = this.getMedia();
 		if (media >= 70) {
-			return "Aprovado";
+			return StatusAluno.APROVADO;
 		} else if (media >= 50 && media < 70) {
-			return "Recuperação";
+			return StatusAluno.RECUPERACAO;
 		} else {
-			return "Reprovado";
+			return StatusAluno.REPROVADO;
 		}
 	}
 
