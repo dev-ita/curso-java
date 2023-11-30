@@ -30,7 +30,7 @@ public class Aluno extends Pessoa {
 
 	public Aluno(String nome, int idade, String dataNascimento, String registroGeral, String numeroCpf, String nomeMae,
 			String nomePai, String dataMatricula, String nomeEscola, String serieMatriculado) {
-		
+
 		// alimentando a super classe <Pessoa>
 		super(nome, idade, dataNascimento, registroGeral, numeroCpf, nomeMae, nomePai);
 
@@ -114,6 +114,15 @@ public class Aluno extends Pessoa {
 
 	public void setSerieMatriculado(String serieMatriculado) {
 		this.serieMatriculado = serieMatriculado;
+	}
+
+	@Override // identifica método sobreescrito
+	public boolean pessoaMaiorDeIdade() {
+		return idade >= 21;
+	}
+
+	public String msgMaiorDeIdade() {
+		return this.pessoaMaiorDeIdade() ? "O aluno ja é maior de idade!" : "O aluno é menor de idade!";
 	}
 
 	@Override
