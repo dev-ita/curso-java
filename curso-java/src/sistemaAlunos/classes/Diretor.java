@@ -1,0 +1,45 @@
+package sistemaAlunos.classes;
+
+public class Diretor extends Pessoa {
+
+	private String registroEducacao;
+	private int tempoDirecao;
+	private String titulacao;
+
+	public Diretor() {
+
+	}
+
+	public Diretor(String nome, int idade, String dataNascimento, String registroGeral, String numeroCpf,
+			String nomeMae, String nomePai, String registroEducacao, int tempoDirecao, String titulacao) {
+		super(nome, idade, dataNascimento, registroGeral, numeroCpf, nomeMae, nomePai);
+		this.registroEducacao = registroEducacao;
+		this.tempoDirecao = tempoDirecao;
+		this.titulacao = titulacao;
+	}
+
+	public String getRegistroEducacao() {
+		return registroEducacao;
+	}
+
+	public void setRegistroEducacao(String registroEducacao) {
+		this.registroEducacao = registroEducacao;
+	}
+
+	public int getTempoDirecao() {
+		return tempoDirecao;
+	}
+
+	public void setTempoDirecao(int tempoDirecao) {
+		this.tempoDirecao = tempoDirecao;
+	}
+
+	public String getTitulacao() {
+		return titulacao;
+	}
+
+	public void setTitulacao(String titulacao) {
+		this.titulacao = titulacao;
+	}
+
+}
