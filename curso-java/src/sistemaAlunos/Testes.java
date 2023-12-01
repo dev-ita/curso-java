@@ -22,6 +22,8 @@ public class Testes {
 		secretario.setNumeroCpf("329.454.884-09");
 		secretario.setIdade(18);
 		secretario.setNome("joão");
+		secretario.setSenha("admin");
+		secretario.setUsuario("admin");
 
 		System.out.println(aluno);
 		System.out.println(diretor);
@@ -43,6 +45,8 @@ public class Testes {
 		teste(diretor);
 		teste(secretario);
 		teste(pessoa);
+		
+		System.out.println("secretario autenticado = " + secretario.autenticar());
 	}
 
 	public static void teste(Pessoa pessoa) {

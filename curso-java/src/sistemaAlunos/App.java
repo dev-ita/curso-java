@@ -3,9 +3,12 @@ package sistemaAlunos;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 import javax.swing.JOptionPane;
+
 import sistemaAlunos.classes.Aluno;
 import sistemaAlunos.classes.Disciplina;
+import sistemaAlunos.classes.Secretario;
 import sistemaAlunos.constantes.StatusAluno;
 
 public class App {
@@ -13,8 +16,14 @@ public class App {
 
 		String login = JOptionPane.showInputDialog(null, "Informa o login");
 		String password = JOptionPane.showInputDialog(null, "Informa a senha");
+		
+		// autenticação do secretário
+		Secretario secretario = new Secretario();
+		secretario.setNome("ítalo");
+		secretario.setUsuario(login);
+		secretario.setSenha(password);
 
-		if (login.equals("admin") && password.equals("admin")) {
+		if (secretario.autenticar()) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
