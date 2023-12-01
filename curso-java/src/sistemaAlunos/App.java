@@ -7,22 +7,25 @@ import java.util.List;
 import javax.swing.JOptionPane;
 
 import sistemaAlunos.classes.Aluno;
+import sistemaAlunos.classes.Diretor;
 import sistemaAlunos.classes.Disciplina;
-import sistemaAlunos.classes.Secretario;
+import sistemaAlunos.classesAuxiliares.FuncaoAutenticacao;
 import sistemaAlunos.constantes.StatusAluno;
-import sistemaAlunos.interfaces.PermitirAcesso;
 
 public class App {
 	public static void main(String[] args) {
 
 		String login = JOptionPane.showInputDialog(null, "Informa o login");
 		String password = JOptionPane.showInputDialog(null, "Informa a senha");
-		
+
 		// autenticação do secretário
 		// utilizando interface com construtor
-		PermitirAcesso permitirAcesso = new Secretario(login, password);
+		
+		// PermitirAcesso permitirAcesso = new Secretario(login, password);
 
-		if (permitirAcesso.autenticar()) {
+		// Vou travar o contrato para autorizar somente quem realmente tem o contrato
+		// 100% legítimo
+		if (new FuncaoAutenticacao(new Diretor(login, password)).autenticarLogin()) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 

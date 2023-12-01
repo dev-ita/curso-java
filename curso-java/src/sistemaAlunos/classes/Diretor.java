@@ -1,13 +1,23 @@
 package sistemaAlunos.classes;
 
-public class Diretor extends Pessoa {
+import sistemaAlunos.interfaces.PermitirAcesso;
+
+public class Diretor extends Pessoa implements PermitirAcesso {
 
 	private String registroEducacao;
 	private int tempoDirecao;
 	private String titulacao;
+	
+	private String login;
+	private String password;
 
 	public Diretor() {
 
+	}
+	
+	public Diretor(String login, String password) {
+		this.login = login;
+		this.password = password;
 	}
 
 	public Diretor(String nome, int idade, String dataNascimento, String registroGeral, String numeroCpf,
@@ -53,5 +63,17 @@ public class Diretor extends Pessoa {
 	@Override
 	public double salario() {
 		return 3900.78;
+	}
+
+	@Override
+	public boolean autenticar(String login, String password) {
+		this.login = login;
+		this.password = password;
+		return autenticar();
+	}
+
+	@Override
+	public boolean autenticar() {
+		return login.equals("italo1071") && password.equals("isabele123");
 	}
 }
