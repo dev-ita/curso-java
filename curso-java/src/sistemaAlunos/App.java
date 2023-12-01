@@ -10,6 +10,7 @@ import sistemaAlunos.classes.Aluno;
 import sistemaAlunos.classes.Disciplina;
 import sistemaAlunos.classes.Secretario;
 import sistemaAlunos.constantes.StatusAluno;
+import sistemaAlunos.interfaces.PermitirAcesso;
 
 public class App {
 	public static void main(String[] args) {
@@ -18,8 +19,10 @@ public class App {
 		String password = JOptionPane.showInputDialog(null, "Informa a senha");
 		
 		// autenticação do secretário
+		// utilizando interface com construtor
+		PermitirAcesso permitirAcesso = new Secretario(login, password);
 
-		if (new Secretario().autenticar(login, password)) {
+		if (permitirAcesso.autenticar()) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
