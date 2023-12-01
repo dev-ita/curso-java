@@ -1,6 +1,7 @@
 package sistemaAlunos.classes;
 
-public class Pessoa {
+// o abstract serve para que essa classe seja apenas um modelo para as outras, ela não pode ser instânciada e virar um objeto.
+public abstract class Pessoa {
 
 	// protected siginifca que vai ser visivel a super classe e as sub classes
 	protected String nome;
