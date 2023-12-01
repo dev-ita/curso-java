@@ -7,8 +7,6 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 	private String registro;
 	private String nivelCargo;
 	private String experiencia;
-	private String usuario;
-	private String senha;
 
 	public Secretario() {
 
@@ -46,22 +44,6 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 		this.experiencia = experiencia;
 	}
 
-	public String getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
 	@Override
 	public String toString() {
 		return "Secretario [registro=" + registro + ", nivelCargo=" + nivelCargo + ", experiencia=" + experiencia
@@ -74,9 +56,9 @@ public class Secretario extends Pessoa implements PermitirAcesso {
 		return 1800.80 * 0.9;
 	}
 
-	// esse é o método do contrato de autenticação..
+
 	@Override
-	public boolean autenticar() {
-		return usuario.equals("admin") && senha.equals("admin");
+	public boolean autenticar(String login, String senha) {
+		return login.equals("admin") && senha.equals("admin");
 	}
 }

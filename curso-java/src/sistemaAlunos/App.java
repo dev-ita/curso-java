@@ -18,12 +18,8 @@ public class App {
 		String password = JOptionPane.showInputDialog(null, "Informa a senha");
 		
 		// autenticação do secretário
-		Secretario secretario = new Secretario();
-		secretario.setNome("ítalo");
-		secretario.setUsuario(login);
-		secretario.setSenha(password);
 
-		if (secretario.autenticar()) {
+		if (new Secretario().autenticar(login, password)) {
 
 			List<Aluno> alunos = new ArrayList<Aluno>();
 
