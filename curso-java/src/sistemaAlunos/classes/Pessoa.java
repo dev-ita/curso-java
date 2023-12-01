@@ -11,6 +11,9 @@ public abstract class Pessoa {
 	protected String numeroCpf;
 	protected String nomeMae;
 	protected String nomePai;
+	
+	// criando um método abstrato, isso faz com que todas as subclasses sejam obrigadas a implementar este método.
+	public abstract double salario();
 
 	public Pessoa() {
 

@@ -1,6 +1,8 @@
 package sistemaAlunos;
 
-import sistemaAlunos.classes.*;
+import sistemaAlunos.classes.Aluno;
+import sistemaAlunos.classes.Diretor;
+import sistemaAlunos.classes.Secretario;
 
 public class Testes {
 	public static void main(String[] args) {
@@ -26,5 +28,9 @@ public class Testes {
 		System.out.println(aluno.pessoaMaiorDeIdade() + " - " + aluno.msgMaiorDeIdade());
 		System.out.println(diretor.pessoaMaiorDeIdade());
 		System.out.println(secretario.pessoaMaiorDeIdade());
+
+		System.out.println("salario = " + aluno.salario());
+		System.out.println("salario = " + diretor.salario());
+		System.out.println("salario = " + secretario.salario());
 	}
 }
