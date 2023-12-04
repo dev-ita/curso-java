@@ -178,7 +178,7 @@ public class App {
 
 	public static void lerArquivo() throws ExcecaoProcessarNota {
 		try {
-			File file = new File("arquivo.txt");
+			File file = new File("C://arquivo.txt");
 			Scanner scanner = new Scanner(file);
 			scanner.close();
 		} catch (FileNotFoundException e) {
