@@ -180,7 +180,10 @@ public class App {
 		try {
 			File file = new File("arquivo.txt");
 			Scanner scanner = new Scanner(file);
+			scanner.close();
 		} catch (FileNotFoundException e) {
+			// lançando a exceção pro método pai através do throws no nome da função
+			// lerArquivo.
 			throw new ExcecaoProcessarNota(e.getMessage());
 		}
 	}
