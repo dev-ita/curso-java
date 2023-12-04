@@ -20,8 +20,8 @@ public class App {
 
 		try {
 			
-			File file = new File("arquivo.txt");
-			Scanner scanner = new Scanner(file);
+//			File file = new File("arquivo.txt");
+//			Scanner scanner = new Scanner(file);
 			
 			String login = JOptionPane.showInputDialog(null, "Informa o login");
 			String password = JOptionPane.showInputDialog(null, "Informa a senha");
@@ -169,6 +169,8 @@ public class App {
 			System.out.println("Erro genérico");
 			e.printStackTrace();
 			JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
+		} finally { // não é obrigatório usar, ele sempre será executado independente de erro
+			JOptionPane.showMessageDialog(null, "Aprendendo java");
 		}
 	}
 }
