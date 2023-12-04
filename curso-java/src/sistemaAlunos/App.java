@@ -1,6 +1,7 @@
 package sistemaAlunos;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -13,16 +14,16 @@ import sistemaAlunos.classes.Diretor;
 import sistemaAlunos.classes.Disciplina;
 import sistemaAlunos.classesAuxiliares.FuncaoAutenticacao;
 import sistemaAlunos.constantes.StatusAluno;
+import sistemaAlunos.excecao.ExcecaoProcessarNota;
 import sistemaAlunos.interfaces.PermitirAcesso;
 
 public class App {
 	public static void main(String[] args) {
 
 		try {
-			
-//			File file = new File("arquivo.txt");
-//			Scanner scanner = new Scanner(file);
-			
+
+			lerArquivo();
+
 			String login = JOptionPane.showInputDialog(null, "Informa o login");
 			String password = JOptionPane.showInputDialog(null, "Informa a senha");
 
@@ -165,12 +166,22 @@ public class App {
 			JOptionPane.showMessageDialog(null, "Erro na conversão de numero: " + saida.toString());
 		} catch (NullPointerException e) {
 			JOptionPane.showMessageDialog(null, "Ocorreu um NullPointerException no programa: " + e);
-		} catch (Exception e) {
-			System.out.println("Erro genérico");
+		} catch (ExcecaoProcessarNota e) {
 			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
+			JOptionPane.showMessageDialog(null, "Erro da exceção customizada: " + e.getClass().getName());
+		} catch (Exception e) {
+			JOptionPane.showConfirmDialog(null, "Erro genérico: " + e.getMessage());
 		} finally { // não é obrigatório usar, ele sempre será executado independente de erro
 			JOptionPane.showMessageDialog(null, "Aprendendo java");
+		}
+	}
+
+	public static void lerArquivo() throws ExcecaoProcessarNota {
+		try {
+			File file = new File("arquivo.txt");
+			Scanner scanner = new Scanner(file);
+		} catch (FileNotFoundException e) {
+			throw new ExcecaoProcessarNota(e.getMessage());
 		}
 	}
 }
