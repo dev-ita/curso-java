@@ -1,15 +1,16 @@
 package sistemaAlunos;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
 import sistemaAlunos.classes.Aluno;
 import sistemaAlunos.classes.Diretor;
 import sistemaAlunos.classes.Disciplina;
-import sistemaAlunos.classes.Secretario;
 import sistemaAlunos.classesAuxiliares.FuncaoAutenticacao;
 import sistemaAlunos.constantes.StatusAluno;
 import sistemaAlunos.interfaces.PermitirAcesso;
@@ -18,6 +19,10 @@ public class App {
 	public static void main(String[] args) {
 
 		try {
+			
+			File file = new File("arquivo.txt");
+			Scanner scanner = new Scanner(file);
+			
 			String login = JOptionPane.showInputDialog(null, "Informa o login");
 			String password = JOptionPane.showInputDialog(null, "Informa a senha");
 
@@ -42,7 +47,7 @@ public class App {
 				for (int qtd = 1; qtd <= 2; qtd++) {
 
 					String nome = JOptionPane.showInputDialog(null, "Qual o nome do aluno " + qtd + "?");
-//			int idade = Integer.parseInt(JOptionPane.showInputDialog(null, "Qual a idade do aluno?"));
+					int idade = Integer.parseInt(JOptionPane.showInputDialog(null, "Qual a idade do aluno?"));
 //			String dataNascimento = JOptionPane.showInputDialog(null, "Qual a data de nascimento?");
 //			String rg = JOptionPane.showInputDialog(null, "Qual o seu RG?");
 //			String cpf = JOptionPane.showInputDialog(null, "Qual seu CPF?");
@@ -53,6 +58,7 @@ public class App {
 //			String nomeEscola = JOptionPane.showInputDialog(null, "Qual o nome da escola?");
 
 					Aluno aluno = new Aluno(nome);
+					aluno.setIdade(idade);
 //			Aluno aluno = new Aluno(nome, idade, dataNascimento, rg, cpf, nomeMae, nomePai, dataMatricula, serieMatriculado, nomeEscola);
 
 					int numeroDisciplinas = Integer
@@ -139,10 +145,30 @@ public class App {
 				JOptionPane.showMessageDialog(null, "Credenciais inválidas.", "erro", JOptionPane.ERROR_MESSAGE);
 			}
 
-		} catch (Exception e) {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(null, "Erro ao processar notas: " + e);
-		}
+		} catch (NumberFormatException e) {
 
+			StringBuilder saida = new StringBuilder();
+
+			e.printStackTrace();
+
+			System.out.println("Mensagem: " + e.getMessage());
+
+			// imprimindo a pilha de erros, o getStackTrace retorna um array de
+			// StrackTraceElement[]
+			for (var item : e.getStackTrace()) {
+				saida.append("\nClasso de erro: " + item.getClassName());
+				saida.append("\nMétodo de erro: " + item.getMethodName());
+				saida.append("\nLinha de erro: " + item.getLineNumber());
+				saida.append("\nClass: " + e.getClass().getName());
+			}
+
+			JOptionPane.showMessageDialog(null, "Erro na conversão de numero: " + saida.toString());
+		} catch (NullPointerException e) {
+			JOptionPane.showMessageDialog(null, "Ocorreu um NullPointerException no programa: " + e);
+		} catch (Exception e) {
+			System.out.println("Erro genérico");
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Erro inesperado: " + e.getClass().getName());
+		}
 	}
 }
