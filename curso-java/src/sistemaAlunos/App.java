@@ -66,10 +66,16 @@ public class App {
 							.parseInt(JOptionPane.showInputDialog(null, "Quantas disciplinas você tem?"));
 
 					for (int i = 1; i <= numeroDisciplinas; i++) {
+						double[] notas = new double[4];
 						String nomeDisciplina = JOptionPane.showInputDialog(null, "Qual o nome da disciplina " + i);
-						double notaDisciplina = Double
-								.parseDouble(JOptionPane.showInputDialog(null, "Qual a nota da disciplina" + i));
-						aluno.getDisciplinas().add(new Disciplina(nomeDisciplina, notaDisciplina));
+
+						for (int j = 0; j < notas.length; j++) {
+							double notaDisciplina = Double.parseDouble(
+									JOptionPane.showInputDialog(null, "Qual a nota da disciplina " + (j + 1)));
+							notas[j] = notaDisciplina;
+						}
+
+						aluno.getDisciplinas().add(new Disciplina(nomeDisciplina, notas));
 					}
 
 					int removerDisciplina = JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplina?");

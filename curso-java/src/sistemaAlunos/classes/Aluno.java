@@ -66,14 +66,14 @@ public class Aluno extends Pessoa {
 	public double getMedia() {
 		double somaNotas = 0.0;
 		for (Disciplina disciplina : disciplinas) {
-			somaNotas += disciplina.getNota();
+			somaNotas += disciplina.getMedia();
 		}
 		return somaNotas / disciplinas.size();
 	}
 
 	public boolean verificarAprovacao() {
 		double media = this.getMedia();
-		if (media >= 70) {
+		if (media >= 7) {
 			return true;
 		} else {
 			return false;
@@ -82,9 +82,9 @@ public class Aluno extends Pessoa {
 
 	public String verificarAprovacaoStr() {
 		double media = this.getMedia();
-		if (media >= 70) {
+		if (media >= 7) {
 			return StatusAluno.APROVADO;
-		} else if (media >= 50 && media < 70) {
+		} else if (media >= 5 && media < 7 ) {
 			return StatusAluno.RECUPERACAO;
 		} else {
 			return StatusAluno.REPROVADO;
