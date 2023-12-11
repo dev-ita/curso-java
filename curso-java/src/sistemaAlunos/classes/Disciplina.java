@@ -32,7 +32,7 @@ public class Disciplina {
 
 	public void setNota(double[] nota) throws ExcecaoSetarNota {
 		if (nota.length > this.nota.length) {
-			throw new ExcecaoSetarNota("Estourou o tamanho permitido de notas que é 4");
+			throw new ExcecaoSetarNota("Estourou o tamanho permitido de notas que é 4 e você mandou com o tamanho " + nota.length);
 		}
 		this.nota = nota;
 	}
