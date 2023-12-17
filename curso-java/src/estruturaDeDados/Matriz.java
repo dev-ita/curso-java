@@ -8,6 +8,7 @@ public class Matriz {
 		notas[0][1] = 90;
 		notas[0][2] = 60;
 		notas[0][3] = 100;
+		
 		notas[1][0] = 20;
 		notas[1][1] = 30;
 		notas[1][2] = 40;
