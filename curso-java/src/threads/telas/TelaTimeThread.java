@@ -120,7 +120,7 @@ public class TelaTimeThread extends JDialog {
 				startButton.setEnabled(false);
 			}
 		});
-
+		
 		stopButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
