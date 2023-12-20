@@ -32,7 +32,7 @@ public class TelaProcessoFilaPilha extends JDialog {
 
 	private JButton startButton = new JButton("Add lista");
 	private JButton stopButton = new JButton("Stop");
-	
+
 	private ImplementacaoFilaThread fila = new ImplementacaoFilaThread();
 
 	public TelaProcessoFilaPilha() {
@@ -77,22 +77,32 @@ public class TelaProcessoFilaPilha extends JDialog {
 		startButton.addActionListener(new ActionListener() { // executa o clique
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ObjetoFilaThread filaThread = new ObjetoFilaThread();
-				filaThread.setNome(textNome.getText());
-				filaThread.setEmail(textEmail.getText());
 				
-				fila.add(filaThread);
+				if (fila == null) {
+					fila = new ImplementacaoFilaThread();
+					fila.start();
+				}
+
+				for (int i = 0; i < 10; i++) {
+					ObjetoFilaThread filaThread = new ObjetoFilaThread();
+					filaThread.setNome(textNome.getText());
+					filaThread.setEmail(textEmail.getText() + " - " + i);
+
+					fila.add(filaThread);
+				}
 			}
 		});
 
 		stopButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				fila.interrupt();
+				fila = null;
 			}
 		});
 
 		fila.start();
-		
+
 		add(jPanel, BorderLayout.WEST);
 
 		// Torna a tela visivel para o usuário

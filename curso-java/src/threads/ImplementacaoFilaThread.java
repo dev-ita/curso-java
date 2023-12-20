@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class ImplementacaoFilaThread extends Thread {
-	private ConcurrentLinkedQueue<ObjetoFilaThread> pilhaFila = new ConcurrentLinkedQueue<ObjetoFilaThread>();
+	private static ConcurrentLinkedQueue<ObjetoFilaThread> pilhaFila = new ConcurrentLinkedQueue<ObjetoFilaThread>();
 
-	public void add(ObjetoFilaThread objetoFilaThread) {
+	public static void add(ObjetoFilaThread objetoFilaThread) {
 		pilhaFila.add(objetoFilaThread);
 	}
 
