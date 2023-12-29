@@ -18,7 +18,7 @@ public class ApachePoi2 {
 				new File("C:\\Users\\italo\\git\\curso-java\\curso-java\\src\\arquivos\\arquivo_excel.xls"));
 
 		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(entrada); // preparando a entrada do arquivo para poder ler
-		HSSFSheet planilha = hssfWorkbook.getSheetAt(0); // pega a primeira planilha
+		HSSFSheet planilha = hssfWorkbook.getSheetAt(0); // peAga a primeira planilha
 
 		Iterator<Row> linhaIterator = planilha.iterator();
 
